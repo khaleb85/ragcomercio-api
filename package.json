@@ -1,0 +1,33 @@
+{
+  "name": "ragcomercio-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lintfix": "eslint . --fix",
+    "test": "npm run build && mocha build/test/**/**.spec.js",
+    "check": "npm run lint && npm run test",
+    "build": "babel . --ignore node_modules,dist,build -d ./build --copy-files",
+    "build:prod": "babel . --ignore node_modules,dist,build -d ./dist --presets minify --copy-files",
+    "start": "npm run build && node build/index.js",
+    "start:prod": "node dist/index.js"
+  },
+  "author": "Shukizu",
+  "license": "ISC",
+  "dependencies": {
+    "nightmare": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-minify": "^0.2.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-node": "^5.2.1"
+  }
+}
