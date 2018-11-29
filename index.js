@@ -1,7 +1,7 @@
-import Crawler from './src/crawler';
+import ItemsCrawlerService from './src/crawler/services/itemsCrawler.service';
 
-var c = new Crawler();
-c.getItem(18125)
+let c = new ItemsCrawlerService();
+c.getSingleItemData(18125)
 .then(elements => {
     
     console.log(elements);
