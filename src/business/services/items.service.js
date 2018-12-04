@@ -8,11 +8,15 @@ class ItemsService {
     }
 
     getItem(identifier) {
-        this.crawlerService.getSingleItemData(identifier)
-            .then(item => {
-                const obj = this.dataHandlerService.convertEquipment(item);
-                console.log(obj);
-            });
+        return new Promise((resolve, reject) => {
+            this.crawlerService.getSingleItemData(identifier)
+                .then(item => {
+                    return resolve(this.dataHandlerService.convertEquipments(item));
+                })
+                .catch(err => {
+                    return reject(err);
+                });
+        });
     }
 }
 
