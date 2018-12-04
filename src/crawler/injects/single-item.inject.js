@@ -20,6 +20,10 @@ window.getTableItems = function getTableItems(querySelector, tableSelector) {
             }
 
             return {
+                Id: {
+                    item: element.querySelector(querySelector.TableColumns.Name).getAttribute('item'),
+                    nameId: element.querySelector(querySelector.TableColumns.Name).getAttribute('nameid'),
+                },
                 Name: element.querySelector(querySelector.TableColumns.Name).innerText.trim(),
                 Quantity: parseInt(element.querySelector(querySelector.TableColumns.Quantity).innerHTML.trim()),
                 MinPrice: minPrice,

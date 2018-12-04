@@ -16,7 +16,8 @@
   "author": "Shukizu",
   "license": "ISC",
   "dependencies": {
-    "nightmare": "^3.0.1"
+    "nightmare": "^3.0.1",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -2,6 +2,7 @@
 import Nightmare from 'nightmare';
 import path from 'path';
 import QuerySelectors from '../../../config/querySelector.config';
+import ApiParams from '../../../config/apiParams.config';
 import NightmareConfig from '../../../config/nightmare.config';
 
 class ItemsCrawlerService {
@@ -15,9 +16,9 @@ class ItemsCrawlerService {
         this._nightmare = new Nightmare(nightmareParams);
     }
 
-    getSingleItemData(id) {
+    getSingleItemData(id, server) {
         return this._nightmare
-            .goto(`${QuerySelectors.BaseUrl}/search/2/${id}`)
+            .goto(`${ApiParams.baseUrl}/search/${server}/${id}`)
             .inject('js', path.join(__dirname, '../injects/single-item.inject.js'))
             .evaluate((querySelector) => {
                 return {
